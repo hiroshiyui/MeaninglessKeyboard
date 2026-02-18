@@ -8,9 +8,9 @@ A customizable Android IME (Input Method Editor) built with Jetpack Compose and 
 |:-:|:-:|:-:|
 | ![English QWERTY](screenshots/en_qwerty.png) | ![Bopomofo Dachen](screenshots/bopomofo_dachen.png) | ![Number Pad](screenshots/number_pad.png) |
 
-| Emoji | Pack Management | Key Preview |
+| Emoji | Key Preview | Pack Management |
 |:-:|:-:|:-:|
-| ![Emoji](screenshots/emoji_layout.png) | ![Pack Management](screenshots/pack_management.png) | ![Key Preview](screenshots/key_preview.png) |
+| ![Emoji](screenshots/emoji_layout.png) | ![Key Preview](screenshots/key_preview.png) | ![Pack Management](screenshots/pack_management.png) |
 
 ## Features
 
