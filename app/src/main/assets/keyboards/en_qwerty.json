@@ -1,0 +1,166 @@
+{
+  "name": "English QWERTY",
+  "author": "built-in",
+  "version": 1,
+  "defaultLayout": "lower",
+  "layouts": {
+    "lower": {
+      "rows": [
+        {
+          "keys": [
+            { "label": "q", "output": "q" },
+            { "label": "w", "output": "w" },
+            { "label": "e", "output": "e" },
+            { "label": "r", "output": "r" },
+            { "label": "t", "output": "t" },
+            { "label": "y", "output": "y" },
+            { "label": "u", "output": "u" },
+            { "label": "i", "output": "i" },
+            { "label": "o", "output": "o" },
+            { "label": "p", "output": "p" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "a", "output": "a" },
+            { "label": "s", "output": "s" },
+            { "label": "d", "output": "d" },
+            { "label": "f", "output": "f" },
+            { "label": "g", "output": "g" },
+            { "label": "h", "output": "h" },
+            { "label": "j", "output": "j" },
+            { "label": "k", "output": "k" },
+            { "label": "l", "output": "l" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "⇧", "keycode": "SHIFT", "width": 1.5 },
+            { "label": "z", "output": "z" },
+            { "label": "x", "output": "x" },
+            { "label": "c", "output": "c" },
+            { "label": "v", "output": "v" },
+            { "label": "b", "output": "b" },
+            { "label": "n", "output": "n" },
+            { "label": "m", "output": "m" },
+            { "label": "⌫", "keycode": "BACKSPACE", "width": 1.5, "repeatable": true }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "123", "switchLayout": "symbols", "width": 1.5 },
+            { "label": ",", "output": "," },
+            { "label": " ", "output": " ", "width": 5.0 },
+            { "label": ".", "output": "." },
+            { "label": "⏎", "keycode": "ENTER", "width": 1.5 }
+          ]
+        }
+      ]
+    },
+    "upper": {
+      "rows": [
+        {
+          "keys": [
+            { "label": "Q", "output": "Q" },
+            { "label": "W", "output": "W" },
+            { "label": "E", "output": "E" },
+            { "label": "R", "output": "R" },
+            { "label": "T", "output": "T" },
+            { "label": "Y", "output": "Y" },
+            { "label": "U", "output": "U" },
+            { "label": "I", "output": "I" },
+            { "label": "O", "output": "O" },
+            { "label": "P", "output": "P" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "A", "output": "A" },
+            { "label": "S", "output": "S" },
+            { "label": "D", "output": "D" },
+            { "label": "F", "output": "F" },
+            { "label": "G", "output": "G" },
+            { "label": "H", "output": "H" },
+            { "label": "J", "output": "J" },
+            { "label": "K", "output": "K" },
+            { "label": "L", "output": "L" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "⇧", "keycode": "SHIFT", "width": 1.5 },
+            { "label": "Z", "output": "Z" },
+            { "label": "X", "output": "X" },
+            { "label": "C", "output": "C" },
+            { "label": "V", "output": "V" },
+            { "label": "B", "output": "B" },
+            { "label": "N", "output": "N" },
+            { "label": "M", "output": "M" },
+            { "label": "⌫", "keycode": "BACKSPACE", "width": 1.5, "repeatable": true }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "123", "switchLayout": "symbols", "width": 1.5 },
+            { "label": ",", "output": "," },
+            { "label": " ", "output": " ", "width": 5.0 },
+            { "label": ".", "output": "." },
+            { "label": "⏎", "keycode": "ENTER", "width": 1.5 }
+          ]
+        }
+      ]
+    },
+    "symbols": {
+      "rows": [
+        {
+          "keys": [
+            { "label": "1", "output": "1" },
+            { "label": "2", "output": "2" },
+            { "label": "3", "output": "3" },
+            { "label": "4", "output": "4" },
+            { "label": "5", "output": "5" },
+            { "label": "6", "output": "6" },
+            { "label": "7", "output": "7" },
+            { "label": "8", "output": "8" },
+            { "label": "9", "output": "9" },
+            { "label": "0", "output": "0" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "@", "output": "@" },
+            { "label": "#", "output": "#" },
+            { "label": "$", "output": "$" },
+            { "label": "%", "output": "%" },
+            { "label": "&", "output": "&" },
+            { "label": "-", "output": "-" },
+            { "label": "+", "output": "+" },
+            { "label": "(", "output": "(" },
+            { "label": ")", "output": ")" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "!", "output": "!" },
+            { "label": "\"", "output": "\"" },
+            { "label": "'", "output": "'" },
+            { "label": ":", "output": ":" },
+            { "label": ";", "output": ";" },
+            { "label": "/", "output": "/" },
+            { "label": "?", "output": "?" },
+            { "label": "⌫", "keycode": "BACKSPACE", "width": 1.5, "repeatable": true }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "ABC", "switchLayout": "lower", "width": 1.5 },
+            { "label": ",", "output": "," },
+            { "label": " ", "output": " ", "width": 5.0 },
+            { "label": ".", "output": "." },
+            { "label": "⏎", "keycode": "ENTER", "width": 1.5 }
+          ]
+        }
+      ]
+    }
+  }
+}

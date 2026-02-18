@@ -1,0 +1,45 @@
+{
+  "name": "Number Pad",
+  "author": "built-in",
+  "version": 1,
+  "defaultLayout": "numbers",
+  "layouts": {
+    "numbers": {
+      "rows": [
+        {
+          "keys": [
+            { "label": "1", "output": "1" },
+            { "label": "2", "output": "2" },
+            { "label": "3", "output": "3" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "4", "output": "4" },
+            { "label": "5", "output": "5" },
+            { "label": "6", "output": "6" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "7", "output": "7" },
+            { "label": "8", "output": "8" },
+            { "label": "9", "output": "9" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": ".", "output": "." },
+            { "label": "0", "output": "0" },
+            { "label": "⌫", "keycode": "BACKSPACE", "repeatable": true }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "⏎", "keycode": "ENTER", "width": 3.0 }
+          ]
+        }
+      ]
+    }
+  }
+}
