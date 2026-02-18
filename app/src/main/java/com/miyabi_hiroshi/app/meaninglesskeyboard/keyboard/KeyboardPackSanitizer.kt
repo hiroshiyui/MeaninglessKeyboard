@@ -9,7 +9,7 @@ object KeyboardPackSanitizer {
     private const val MAX_NAME_LENGTH = 64
     private const val MAX_AUTHOR_LENGTH = 64
     private const val MAX_LAYOUTS = 10
-    private const val MAX_ROWS_PER_LAYOUT = 8
+    private const val MAX_ROWS_PER_LAYOUT = 50
     private const val MAX_KEYS_PER_ROW = 20
     private const val MAX_LABEL_LENGTH = 8
     private const val MAX_OUTPUT_LENGTH = 32
