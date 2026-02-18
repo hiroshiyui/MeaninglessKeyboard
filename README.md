@@ -28,6 +28,7 @@ A customizable Android IME (Input Method Editor) built with Jetpack Compose and 
 | Layout | Description |
 |--------|-------------|
 | English QWERTY | Standard QWERTY with lowercase, uppercase, and symbols sub-layouts |
+| Emoji | 1,184 emojis across 8 categories |
 | Number Pad | Compact numeric keypad |
 | Bopomofo (Dachen) | Taiwanese phonetic input layout |
 
@@ -87,11 +88,19 @@ Each key must have exactly one of `output`, `keycode`, or `switchLayout`.
 | File size | 512 KB |
 | Pack/author name | 64 characters |
 | Layouts per pack | 10 |
-| Rows per layout | 8 |
+| Rows per layout | 50 |
 | Keys per row | 20 |
 | Key label | 8 characters |
 | Key output | 32 characters |
 | Key width | 0.5 - 10.0 |
+
+## Testing
+
+```bash
+./gradlew test
+```
+
+Unit tests cover KeyAction parsing, KeyboardPackSanitizer validation boundaries, and built-in keyboard JSON assets.
 
 ## Tech Stack
 
