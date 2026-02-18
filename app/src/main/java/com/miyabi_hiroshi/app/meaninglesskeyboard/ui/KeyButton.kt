@@ -82,8 +82,6 @@ fun KeyButton(
                 detectTapGestures(
                     onPress = {
                         isPressed = true
-                        // Show preview before dispatching action, so it's visible
-                        // even if the action triggers a layout change (e.g. resetShift)
                         if (keyDef.output != null) {
                             val previewX = keyPosition.x + keyWidth / 2
                             val previewY = keyPosition.y
@@ -92,8 +90,8 @@ fun KeyButton(
                                 IntOffset(previewX, previewY)
                             )
                         }
-                        onKeyPressed(keyDef)
                         if (keyDef.repeatable) {
+                            onKeyPressed(keyDef)
                             repeatJob = scope.launch {
                                 delay(400)
                                 while (true) {
@@ -102,12 +100,17 @@ fun KeyButton(
                                 }
                             }
                         }
-                        tryAwaitRelease()
+                        val released = tryAwaitRelease()
                         isPressed = false
                         repeatJob?.cancel()
                         repeatJob = null
                         onPreviewHide()
-                        onKeyReleased(keyDef)
+                        if (released) {
+                            if (!keyDef.repeatable) {
+                                onKeyPressed(keyDef)
+                            }
+                            onKeyReleased(keyDef)
+                        }
                     }
                 )
             },
