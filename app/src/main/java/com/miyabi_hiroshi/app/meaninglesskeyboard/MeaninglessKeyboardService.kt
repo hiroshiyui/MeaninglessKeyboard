@@ -20,6 +20,7 @@ import com.miyabi_hiroshi.app.meaninglesskeyboard.keyboard.KeyAction
 import com.miyabi_hiroshi.app.meaninglesskeyboard.keyboard.KeyDef
 import com.miyabi_hiroshi.app.meaninglesskeyboard.keyboard.KeyboardState
 import com.miyabi_hiroshi.app.meaninglesskeyboard.ui.KeyboardView
+import com.miyabi_hiroshi.app.meaninglesskeyboard.ui.theme.MeaninglessKeyboardTheme
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -91,11 +92,13 @@ class MeaninglessKeyboardService : InputMethodService(), LifecycleOwner, SavedSt
 
     @Composable
     private fun KeyboardContent() {
-        KeyboardView(
-            keyboardState = keyboardState,
-            onKeyAction = { keyDef -> handleKeyAction(keyDef) },
-            onKeyReleased = { keyDef -> handleKeyReleased(keyDef) }
-        )
+        MeaninglessKeyboardTheme {
+            KeyboardView(
+                keyboardState = keyboardState,
+                onKeyAction = { keyDef -> handleKeyAction(keyDef) },
+                onKeyReleased = { keyDef -> handleKeyReleased(keyDef) }
+            )
+        }
     }
 
     private fun handleKeyAction(keyDef: KeyDef) {

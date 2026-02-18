@@ -1,6 +1,6 @@
 package com.miyabi_hiroshi.app.meaninglesskeyboard.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -36,7 +36,12 @@ data class KeyboardDimensions(
     val previewElevation: Dp = 8.dp
 )
 
-val LightKeyboardColors = KeyboardColors(
+val KeyLabelStyle = TextStyle(
+    fontSize = 20.sp,
+    fontWeight = FontWeight.Normal
+)
+
+private val FallbackKeyboardColors = KeyboardColors(
     keyBackground = Color(0xFFFFFFFF),
     keyBackgroundPressed = Color(0xFFD0D0D0),
     specialKeyBackground = Color(0xFFB0BEC5),
@@ -49,27 +54,22 @@ val LightKeyboardColors = KeyboardColors(
     indicatorDotActive = Color(0xFF616161)
 )
 
-val DarkKeyboardColors = KeyboardColors(
-    keyBackground = Color(0xFF424242),
-    keyBackgroundPressed = Color(0xFF616161),
-    specialKeyBackground = Color(0xFF37474F),
-    keyText = Color(0xFFE0E0E0),
-    keyboardBackground = Color(0xFF212121),
-    previewBackground = Color(0xFF757575),
-    previewText = Color(0xFFFFFFFF),
-    indicatorText = Color(0xFF9E9E9E),
-    indicatorDot = Color(0xFF616161),
-    indicatorDotActive = Color(0xFFBDBDBD)
-)
-
-val KeyLabelStyle = TextStyle(
-    fontSize = 20.sp,
-    fontWeight = FontWeight.Normal
-)
-
-val LocalKeyboardColors = staticCompositionLocalOf { LightKeyboardColors }
+val LocalKeyboardColors = staticCompositionLocalOf { FallbackKeyboardColors }
 val LocalKeyboardDimensions = staticCompositionLocalOf { KeyboardDimensions() }
 
 @Composable
-fun keyboardColors(darkTheme: Boolean = isSystemInDarkTheme()): KeyboardColors =
-    if (darkTheme) DarkKeyboardColors else LightKeyboardColors
+fun keyboardColors(): KeyboardColors {
+    val scheme = MaterialTheme.colorScheme
+    return KeyboardColors(
+        keyboardBackground = scheme.surfaceContainerHigh,
+        keyBackground = scheme.surfaceContainerLow,
+        keyBackgroundPressed = scheme.secondaryContainer,
+        specialKeyBackground = scheme.primaryContainer,
+        keyText = scheme.onSurface,
+        previewBackground = scheme.inverseSurface,
+        previewText = scheme.inverseOnSurface,
+        indicatorText = scheme.onSurfaceVariant,
+        indicatorDot = scheme.outlineVariant,
+        indicatorDotActive = scheme.primary
+    )
+}
