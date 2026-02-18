@@ -1,0 +1,6 @@
+* Emoji keyboard with 1,184 emojis across 8 categories
+* Key preview popup for visual feedback
+* Haptic and sound feedback on key press
+* Pack management UI to enable/disable, reorder, and delete keyboard packs
+* Bopomofo (Dachen) layout for Taiwanese phonetic input
+* Number pad layout
