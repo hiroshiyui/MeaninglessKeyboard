@@ -102,15 +102,6 @@ Each key must have exactly one of `output`, `keycode`, or `switchLayout`.
 
 Unit tests cover KeyAction parsing, KeyboardPackSanitizer validation boundaries, and built-in keyboard JSON assets.
 
-## Tech Stack
-
-- Kotlin 2.2.10
-- Jetpack Compose (BOM 2025.05.01)
-- Material 3 with dynamic colors
-- Room 2.7.0
-- kotlinx-serialization
-- Min SDK 24 (Android 7.0) / Target SDK 36
-
 ## License
 
 This project is licensed under the [GNU General Public License v3.0 or later](LICENSE).
