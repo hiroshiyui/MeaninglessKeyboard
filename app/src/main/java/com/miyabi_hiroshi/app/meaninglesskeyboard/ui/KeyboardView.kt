@@ -7,9 +7,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -49,6 +53,11 @@ fun KeyboardView(
     var previewKey by remember { mutableStateOf<KeyDef?>(null) }
     var previewPosition by remember { mutableStateOf(IntOffset.Zero) }
 
+    val scrollState = rememberScrollState()
+    LaunchedEffect(displayState.currentLayoutName, displayState.packIndex) {
+        scrollState.scrollTo(0)
+    }
+
     CompositionLocalProvider(
         LocalKeyboardColors provides colors,
         LocalKeyboardDimensions provides dimensions
@@ -59,11 +68,13 @@ fun KeyboardView(
                     .fillMaxWidth()
                     .heightIn(max = maxHeight)
                     .background(colors.keyboardBackground)
+                    .navigationBarsPadding()
                     .swipeDetector(
                         onSwipeLeft = { keyboardState.swipeLeft() },
                         onSwipeRight = { keyboardState.swipeRight() }
                     )
                     .padding(dimensions.keyboardPadding)
+                    .verticalScroll(scrollState)
             ) {
                 PackIndicator(
                     packName = displayState.packName,
