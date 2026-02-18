@@ -42,6 +42,32 @@ base {
     archivesName = "${android.defaultConfig.applicationId}-${android.defaultConfig.versionName}"
 }
 
+tasks.register("bumpPatchVersion") {
+    description = "Increment versionCode and versionName patch level"
+    doLast {
+        val buildFile = file("build.gradle.kts")
+        var text = buildFile.readText()
+
+        val codeRegex = Regex("""versionCode\s*=\s*(\d+)""")
+        val nameRegex = Regex("""versionName\s*=\s*"(\d+)\.(\d+)\.(\d+)"""")
+
+        val codeMatch = codeRegex.find(text) ?: error("versionCode not found")
+        val nameMatch = nameRegex.find(text) ?: error("versionName not found")
+
+        val newCode = codeMatch.groupValues[1].toInt() + 1
+        val major = nameMatch.groupValues[1]
+        val minor = nameMatch.groupValues[2]
+        val newPatch = nameMatch.groupValues[3].toInt() + 1
+        val newName = "$major.$minor.$newPatch"
+
+        text = text.replace(codeMatch.value, "versionCode = $newCode")
+        text = text.replace(nameMatch.value, """versionName = "$newName"""")
+        buildFile.writeText(text)
+
+        println("Version bumped: versionCode=$newCode, versionName=$newName")
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
