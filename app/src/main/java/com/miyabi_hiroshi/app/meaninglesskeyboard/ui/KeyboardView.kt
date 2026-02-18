@@ -74,7 +74,6 @@ fun KeyboardView(
                         onSwipeRight = { keyboardState.swipeRight() }
                     )
                     .padding(dimensions.keyboardPadding)
-                    .verticalScroll(scrollState)
             ) {
                 PackIndicator(
                     packName = displayState.packName,
@@ -82,17 +81,24 @@ fun KeyboardView(
                     packCount = displayState.packCount
                 )
 
-                displayState.currentLayout?.rows?.forEach { row ->
-                    KeyboardRow(
-                        row = row,
-                        onKeyPressed = onKeyAction,
-                        onKeyReleased = onKeyReleased,
-                        onPreviewShow = { keyDef, position ->
-                            previewKey = keyDef
-                            previewPosition = position
-                        },
-                        onPreviewHide = { previewKey = null }
-                    )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f, fill = false)
+                        .verticalScroll(scrollState)
+                ) {
+                    displayState.currentLayout?.rows?.forEach { row ->
+                        KeyboardRow(
+                            row = row,
+                            onKeyPressed = onKeyAction,
+                            onKeyReleased = onKeyReleased,
+                            onPreviewShow = { keyDef, position ->
+                                previewKey = keyDef
+                                previewPosition = position
+                            },
+                            onPreviewHide = { previewKey = null }
+                        )
+                    }
                 }
             }
 
