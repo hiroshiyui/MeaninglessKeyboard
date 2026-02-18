@@ -115,7 +115,10 @@ class MeaninglessKeyboardService : InputMethodService(), LifecycleOwner, SavedSt
             }
             is KeyAction.Keycode -> {
                 when (action.code) {
-                    "BACKSPACE" -> ic.deleteSurroundingText(1, 0)
+                    "BACKSPACE" -> {
+                        ic.sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL))
+                        ic.sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL))
+                    }
                     "ENTER" -> {
                         ic.sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
                         ic.sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER))
