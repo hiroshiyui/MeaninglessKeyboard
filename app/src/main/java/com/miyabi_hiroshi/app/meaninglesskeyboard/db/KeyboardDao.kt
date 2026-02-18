@@ -50,6 +50,9 @@ interface KeyboardDao {
     @Query("DELETE FROM keyboard_packs WHERE id = :packId AND is_builtin = 0")
     suspend fun deletePack(packId: Long)
 
+    @Query("DELETE FROM keyboard_packs WHERE is_builtin = 1")
+    suspend fun deleteBuiltinPacks()
+
     @Query("SELECT MAX(sort_order) FROM keyboard_packs")
     suspend fun getMaxSortOrder(): Int?
 

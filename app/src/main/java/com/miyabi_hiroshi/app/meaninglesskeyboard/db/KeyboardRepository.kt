@@ -7,6 +7,7 @@ import com.miyabi_hiroshi.app.meaninglesskeyboard.keyboard.KeyboardPackSanitizer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.security.MessageDigest
 
 class KeyboardRepository(private val dao: KeyboardDao) {
 
@@ -54,10 +55,17 @@ class KeyboardRepository(private val dao: KeyboardDao) {
     }
 
     suspend fun seedBuiltinPacks(context: Context) {
-        if (dao.getPackCount() > 0) return
+        val currentChecksum = computeAssetsChecksum(context)
+        val prefs = context.getSharedPreferences("builtin_keyboards", Context.MODE_PRIVATE)
+        val storedChecksum = prefs.getString("assets_checksum", null)
 
+        if (currentChecksum == storedChecksum) return
+
+        dao.deleteBuiltinPacks()
+
+        val baseSortOrder = (dao.getMaxSortOrder() ?: -1) + 1
         val assetFiles = context.assets.list("keyboards") ?: return
-        var sortOrder = 0
+        var sortOrder = baseSortOrder
         for (fileName in assetFiles.sorted()) {
             if (!fileName.endsWith(".json")) continue
             val jsonString = context.assets.open("keyboards/$fileName").bufferedReader().readText()
@@ -67,6 +75,19 @@ class KeyboardRepository(private val dao: KeyboardDao) {
                 sortOrder++
             }
         }
+
+        prefs.edit().putString("assets_checksum", currentChecksum).apply()
+    }
+
+    private fun computeAssetsChecksum(context: Context): String {
+        val md = MessageDigest.getInstance("SHA-256")
+        val files = context.assets.list("keyboards")?.sorted() ?: return ""
+        for (fileName in files) {
+            if (!fileName.endsWith(".json")) continue
+            md.update(fileName.toByteArray())
+            context.assets.open("keyboards/$fileName").use { md.update(it.readBytes()) }
+        }
+        return md.digest().joinToString("") { "%02x".format(it) }
     }
 
     suspend fun getLayoutsForPack(packId: Long): List<KeyboardLayoutEntity> =
