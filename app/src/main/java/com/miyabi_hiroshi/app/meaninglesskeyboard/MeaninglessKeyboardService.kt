@@ -63,6 +63,8 @@ class MeaninglessKeyboardService : InputMethodService(), LifecycleOwner, SavedSt
         }
     }
 
+    override fun onEvaluateInputViewShown(): Boolean = true
+
     override fun onCreateInputView(): View {
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
