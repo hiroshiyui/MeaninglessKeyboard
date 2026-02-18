@@ -81,6 +81,10 @@ class MainActivity : ComponentActivity() {
         val dao = AppDatabase.getInstance(this).keyboardDao()
         repository = KeyboardRepository(dao)
 
+        kotlinx.coroutines.MainScope().launch {
+            repository.seedBuiltinPacks(this@MainActivity)
+        }
+
         enableEdgeToEdge()
         setContent {
             MeaninglessKeyboardTheme {
