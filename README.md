@@ -2,6 +2,16 @@
 
 A customizable Android IME (Input Method Editor) built with Jetpack Compose and driven by JSON keyboard layout definitions.
 
+## Screenshots
+
+| English QWERTY | Bopomofo (Dachen) | Number Pad |
+|:-:|:-:|:-:|
+| ![English QWERTY](screenshots/en_qwerty.png) | ![Bopomofo Dachen](screenshots/bopomofo_dachen.png) | ![Number Pad](screenshots/number_pad.png) |
+
+| Pack Management | Key Preview |
+|:-:|:-:|
+| ![Pack Management](screenshots/pack_management.png) | ![Key Preview](screenshots/key_preview.png) |
+
 ## Features
 
 - **JSON-driven layouts** - Define keyboard layouts in JSON; import custom layouts from files
