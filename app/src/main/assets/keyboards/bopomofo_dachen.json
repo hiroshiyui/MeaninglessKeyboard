@@ -1,0 +1,76 @@
+{
+  "name": "Bopomofo",
+  "author": "Meaningless Keyboard Project",
+  "version": 1,
+  "defaultLayout": "main",
+  "layouts": {
+    "main": {
+      "rows": [
+        {
+          "keys": [
+            { "label": "ㄅ", "output": "ㄅ" },
+            { "label": "ㄉ", "output": "ㄉ" },
+            { "label": "ˇ", "output": "ˇ" },
+            { "label": "ˋ", "output": "ˋ" },
+            { "label": "ㄓ", "output": "ㄓ" },
+            { "label": "ˊ", "output": "ˊ" },
+            { "label": "˙", "output": "˙" },
+            { "label": "ㄚ", "output": "ㄚ" },
+            { "label": "ㄞ", "output": "ㄞ" },
+            { "label": "ㄢ", "output": "ㄢ" },
+            { "label": "ㄦ", "output": "ㄦ" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "ㄆ", "output": "ㄆ" },
+            { "label": "ㄊ", "output": "ㄊ" },
+            { "label": "ㄍ", "output": "ㄍ" },
+            { "label": "ㄐ", "output": "ㄐ" },
+            { "label": "ㄔ", "output": "ㄔ" },
+            { "label": "ㄗ", "output": "ㄗ" },
+            { "label": "ㄧ", "output": "ㄧ" },
+            { "label": "ㄛ", "output": "ㄛ" },
+            { "label": "ㄟ", "output": "ㄟ" },
+            { "label": "ㄣ", "output": "ㄣ" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "ㄇ", "output": "ㄇ" },
+            { "label": "ㄋ", "output": "ㄋ" },
+            { "label": "ㄎ", "output": "ㄎ" },
+            { "label": "ㄑ", "output": "ㄑ" },
+            { "label": "ㄕ", "output": "ㄕ" },
+            { "label": "ㄘ", "output": "ㄘ" },
+            { "label": "ㄨ", "output": "ㄨ" },
+            { "label": "ㄜ", "output": "ㄜ" },
+            { "label": "ㄠ", "output": "ㄠ" },
+            { "label": "ㄤ", "output": "ㄤ" }
+          ]
+        },
+        {
+          "keys": [
+            { "label": "ㄈ", "output": "ㄈ" },
+            { "label": "ㄌ", "output": "ㄌ" },
+            { "label": "ㄏ", "output": "ㄏ" },
+            { "label": "ㄒ", "output": "ㄒ" },
+            { "label": "ㄖ", "output": "ㄖ" },
+            { "label": "ㄙ", "output": "ㄙ" },
+            { "label": "ㄩ", "output": "ㄩ" },
+            { "label": "ㄝ", "output": "ㄝ" },
+            { "label": "ㄡ", "output": "ㄡ" },
+            { "label": "ㄥ", "output": "ㄥ" },
+            { "label": "⌫", "keycode": "BACKSPACE", "width": 1.5, "repeatable": true }
+          ]
+        },
+        {
+          "keys": [
+            { "label": " ", "output": " ", "width": 5.0 },
+            { "label": "⏎", "keycode": "ENTER", "width": 1.5 }
+          ]
+        }
+      ]
+    }
+  }
+}
